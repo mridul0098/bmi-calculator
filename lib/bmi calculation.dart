@@ -4,18 +4,24 @@ import 'package:flutter/painting.dart';
 import 'main.dart';
 
 class bmi_calculation extends StatefulWidget {
-  var message;
+  var agevalue = 20;
+  var weightvalue = 50;
+  double hightvalue = 100;
 
-  // var BMI;
-  /*bmi_calculation(var message) {
-    this.message = message;
-  }*/
+  bmi_calculation(this.agevalue, this.weightvalue, this.hightvalue);
 
   @override
   State<bmi_calculation> createState() => _bmi_calculationState();
 }
 
 class _bmi_calculationState extends State<bmi_calculation> {
+  // double BMI = widget.agevalue / 5;
+
+  void test() {
+    var bmi = widget.agevalue /5;
+    //print(bmi);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,13 +31,16 @@ class _bmi_calculationState extends State<bmi_calculation> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: Text("Your BMI =",
+              child: Text(
+                "Your BMI =" +(widget.weightvalue / ((widget.hightvalue/100)*(widget.hightvalue/100))).toString(),
+
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
+            SizedBox(height: 40,),
             Center(
               child:
                   //Text("data"),

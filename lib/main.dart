@@ -23,7 +23,8 @@ class _MyAppState extends State<MyApp> {
 //variable declare
   var agevalue = 20;
   var weightvalue = 50;
-  double hightvalue = 2;
+  double hightvalue = 100;
+ 
   //var BMI=0;
 
   var activeCardColor = Colors.amber;
@@ -164,7 +165,7 @@ class _MyAppState extends State<MyApp> {
                       divisions: 250,
                       onChanged: (value) {
                         setState(() {
-                          hightvalue= value;
+                          hightvalue = value;
                         });
                         //print(value);
                       }),
@@ -311,7 +312,7 @@ class _MyAppState extends State<MyApp> {
         GestureDetector(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return bmi_calculation();
+              return bmi_calculation(agevalue, weightvalue,hightvalue);
             }));
             print("value");
           },
@@ -334,4 +335,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
