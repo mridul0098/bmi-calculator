@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/bmi%20calculation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +23,8 @@ class _MyAppState extends State<MyApp> {
 //variable declare
   var agevalue = 20;
   var weightvalue = 50;
-  double _svalue = 2;
+  double hightvalue = 2;
+  //var BMI=0;
 
   var activeCardColor = Colors.amber;
   var inActiveCardColor = Colors.cyan;
@@ -149,20 +151,20 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   Text(
-                    "${_svalue}  cm",
+                    "${hightvalue}  cm",
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                   Slider(
-                      value: _svalue,
+                      value: hightvalue,
                       min: 0,
                       max: 250,
                       divisions: 250,
                       onChanged: (value) {
                         setState(() {
-                          _svalue = value;
+                          hightvalue= value;
                         });
                         //print(value);
                       }),
@@ -304,22 +306,27 @@ class _MyAppState extends State<MyApp> {
 //4th column design
 //bmi calculation part
 
+        // BMI=weightvalue;
+
         GestureDetector(
-         
           onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return bmi_calculation();
+            }));
             print("value");
           },
-          
           child: Container(
             //width: infinite,
             height: 100,
             margin: EdgeInsets.all(10),
             color: Colors.red,
-            child: Center(child: Text("CALCULATE YOUR BMI",
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.w800,
-            ),
+            child: Center(
+                child: Text(
+              "CALCULATE YOUR BMI",
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w800,
+              ),
             )),
           ),
         ),
@@ -327,3 +334,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
